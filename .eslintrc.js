@@ -22,6 +22,7 @@ module.exports = {
   ],
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/prefer-stateless-function": 0,
     "one-var": 0,
     "one-var-declaration-per-line": 0,
     "new-cap": 0,
