@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 import App from '../App';
 import Header from '../components/Layout/Header/Header';
 import Nav from '../components/Layout/Header/Nav/Nav';
+import Footer from '../components/Layout/Footer/Footer';
 
 describe('<App /> Component', () => {
   it('Renders without crashing', () => {
@@ -20,5 +21,11 @@ describe('<Header /> Component', () => {
 describe('<Nav /> Component', () => {
   it('Renders without crashing', () => {
     shallow(<Nav />);
+  })
+});
+
+describe('<Footer /> Component', () => {
+  it('Renders without crashing', () => {
+    shallow(<Footer />);
   })
 });
