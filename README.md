@@ -1,2 +1,2 @@
-# keepClone
-A clone of Google Keep note taking app
+# banka-ui
+A Simple React app to consume the banka api
