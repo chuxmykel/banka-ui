@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Ruda&display=swap');
+
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: 'Ruda', sans-serif;
+  font-size: 18px;
+}
+
+.important {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  width: 112px;
+  height: 40px;
+  border-radius: 10px;
+}
