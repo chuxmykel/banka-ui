@@ -1,10 +1,11 @@
 const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, '../' ,'build'),
     filename: 'bundle.js',
   },
   devServer: {
@@ -18,12 +19,11 @@ module.exports = {
       { test: /\.(gif|png|jpe?g|svg)$/i, use: 'file-loader' },
     ],
   },
-  mode: 'development',
   plugins: [
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: 'public/index.html',
       favicon: 'public/favicon.png',
     }),
   ],
-  devtool: 'inline-source-map',
 };
