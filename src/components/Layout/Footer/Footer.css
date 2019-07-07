@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap');
+
+footer {
+  display: flex;
+  height: 33vh;
+  background-color: black;
+  color: white;
+  font-family: 'Ubuntu Mono', monospace;
+  padding: 80px 100px;
+}
+
+footer h4 {
+  font-size: 18px;
+  color: #7f7f7f
+}
+
+footer ul {
+  list-style: none;
+  margin: 0 160px 0 0;
+}
+
+footer li {
+  padding: 11px 0 11px 0;
+}
+
+.social {
+  display: flex;
+  justify-content: space-around;
+  padding: 11px 0 0 0;
+  font-size: 32px;
+}
+
+.social-container {
+  margin: 0 150px 0 0;
+}
+
+.news-letter {
+  margin: 11px 0 0 0;
+  width: 100%;
+}
+
+.news-letter input {
+  height: 45px;
+  width: 80%;
+  background-color: rgba(127, 127, 127, .5);
+  border: none;
+}
+
+.news-letter input::placeholder {
+  padding: 10px;
+  font-family: 'Ubuntu Mono', monospace;
+  font-weight: bold;
+  font-size: 18px;
+  color: rgba(229, 229, 229, .32);
+}
+
+.news-letter button {
+  height: 45px;
+  width: 20%;
+  color: white;
+  font-family: inherit;
+  font-size: 18px;
+  background-color: #222222;
+  border: none;
+  text-transform: uppercase;
+}
+
