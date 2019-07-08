@@ -1,24 +1,17 @@
 import React from 'react';
+import FooterGroup from './FooterGroup/FooterGroup';
 import './Footer.css';
 
 const Footer = () => (
   <footer>
-    <div>
-      <h4>BANKA</h4>
-      <ul>
-        <li>(BCC) Blog</li>
-        <li>Corporate Services</li>
-        <li>FAQs &amp; Contact</li>
-      </ul>
-    </div>
-    <div>
-      <h4>GET INVOLVED</h4>
-      <ul>
-        <li>Investment Options</li>
-        <li>Careers</li>
-        <li>Brand Ambassadors</li>
-      </ul>
-    </div>
+    <FooterGroup
+      title="BANKA"
+      item={{ a: '(BCC) Blog', b: 'Corporate Services', c: 'FAQs &amp; Contact' }}
+    />
+    <FooterGroup
+      title="GET INVOLVED"
+      item={{ a: 'Investment Options', b: 'Careers', c: 'Brand Ambassadors' }}
+    />
     <div className="social-container">
       <h4>STAY CONNECTED</h4>
       <div className="social">
