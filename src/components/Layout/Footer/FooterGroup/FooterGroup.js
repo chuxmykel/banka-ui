@@ -2,15 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const FooterGroup = (props) => {
-  const { title, item: { a, b, c } } = props;
+  const { title, item } = props;
 
   return (
     <div>
       <h4>{ title }</h4>
       <ul>
-        <li>{ a }</li>
-        <li>{ b }</li>
-        <li>{ c }</li>
+        {item.map((listItem, index) => <li key={index}>{listItem}</li>)}
       </ul>
     </div>
   );
@@ -18,7 +16,7 @@ const FooterGroup = (props) => {
 
 FooterGroup.propTypes = {
   title: PropTypes.string.isRequired,
-  item: PropTypes.object.isRequired,
+  item: PropTypes.array.isRequired,
 };
 
 export default FooterGroup;

@@ -6,11 +6,11 @@ const Footer = () => (
   <footer>
     <FooterGroup
       title="BANKA"
-      item={{ a: '(BCC) Blog', b: 'Corporate Services', c: 'FAQs &amp; Contact' }}
+      item={['(BCC) Blog', 'Corporate Services', 'FAQs & Contact']}
     />
     <FooterGroup
       title="GET INVOLVED"
-      item={{ a: 'Investment Options', b: 'Careers', c: 'Brand Ambassadors' }}
+      item={['Investment Options', 'Careers', 'Brand Ambassadors']}
     />
     <div className="social-container">
       <h4>STAY CONNECTED</h4>
