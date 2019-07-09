@@ -47,6 +47,6 @@ describe('<LandingPage /> Component', () => {
 
 describe('<TitledText /> Component', () => {
   it('Renders without crashing', () => {
-    shallow(<TitledText />);
+    shallow(<TitledText title="test" text="test" cta="test"/>);
   })
 });
