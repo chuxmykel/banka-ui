@@ -1,7 +1,8 @@
 module.exports = {
   "env": {
     "browser": true,
-    "es6": true
+    "es6": true,
+    "jest": true
   },
   "extends": "airbnb",
   "globals": {
@@ -25,6 +26,9 @@ module.exports = {
     "react/prefer-stateless-function": 0,
     "react/forbid-prop-types": 0,
     "react/no-array-index-key": 0,
+    "import/no-extraneous-dependencies": [2, {
+      "devDependencies": ["**/*.test.js", "**/*.spec.js", "src/setupTests.js", "build-utils/*"]
+    }],
     "one-var": 0,
     "one-var-declaration-per-line": 0,
     "new-cap": 0,
@@ -36,5 +40,12 @@ module.exports = {
     "curly": ["error", "multi-line"],
     "import/no-unresolved": [2, { "commonjs": true }],
     "no-shadow": ["error", { "allow": ["req", "res", "err"] }],
-  }
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "build-utils/webpack.common.js"
+      }
+    }
+  },
 };

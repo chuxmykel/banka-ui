@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "es2018",
+    "module": "commonjs",
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "@App/*": [
+        "./src/*"
+      ],
+      "@Components/*": [
+        "./src/components/*"
+      ],
+      "@Layout/*": [
+        "./src/components/Layout/*"
+      ],
+      "@Pages/*": [
+        "./src/components/Pages/*"
+      ],
+      "@Utilities/*": [
+        "./src/utils/*"
+      ],
+      "@Images/*": [
+        "./src/images/*"
+      ],
+    }
+  },
+  "exclude": ["node_modules", "build"]
+}

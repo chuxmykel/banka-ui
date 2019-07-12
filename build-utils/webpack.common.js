@@ -5,12 +5,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, '../' ,'build'),
+    path: path.resolve(__dirname, '../', 'build'),
     filename: 'bundle.js',
-  },
-  devServer: {
-    contentBase: path.resolve(__dirname, 'build'),
-    port: 9000,
   },
   module: {
     rules: [
@@ -19,6 +15,17 @@ module.exports = {
       { test: /\.(gif|png|jpe?g|svg)$/i, use: 'file-loader' },
     ],
   },
+  resolve: {
+    extensions: ['.js'],
+    alias: {
+      '@App': path.resolve(__dirname, '../', 'src/'),
+      '@Components': path.resolve(__dirname, '../', 'src/components/'),
+      '@Layout': path.resolve(__dirname, '../', 'src/components/Layout/'),
+      '@Pages': path.resolve(__dirname, '../', 'src/components/Pages/'),
+      '@Utilities': path.resolve(__dirname, '../', 'src/utils/'),
+      '@Images': path.resolve(__dirname, '../', 'src/images/'),
+    },
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
@@ -26,4 +33,8 @@ module.exports = {
       favicon: 'public/favicon.png',
     }),
   ],
+  devServer: {
+    contentBase: path.resolve(__dirname, 'build'),
+    port: 9000,
+  },
 };
