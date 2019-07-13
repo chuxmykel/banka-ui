@@ -1,10 +1,10 @@
 import React from 'react';
 import Header from '@Layout/Header/Header';
 import Footer from '@Layout/Footer/Footer';
+import TitledText from '@Common/TitledText/TitledText';
 import text from '@Utilities/text';
 import Cards from '@Images/cards.png';
 import Family from '@Images/family.png';
-import TitledText from '../../common/TitledText/TitledText';
 import './LandingPage.css';
 
 const LandingPage = () => (

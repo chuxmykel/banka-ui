@@ -1,13 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import LandingPage from '@Pages/LandingPage/LandingPage';
 import './app.css';
 
-class App extends Component {
-  render = () => (
+const App = (props) => {
+  const { modalOpen } = props;
+  document.querySelector('body').style.overflow = modalOpen ? 'hidden' : null;
+  return (
     <div>
       <LandingPage />
     </div>
   );
-}
+};
 
-export default App;
+App.propTypes = {
+  modalOpen: PropTypes.bool.isRequired,
+};
+
+const mapStateToProps = state => ({
+  modalOpen: state.ui.modalOpen,
+});
+
+export default connect(mapStateToProps)(App);

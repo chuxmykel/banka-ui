@@ -19,7 +19,10 @@ module.exports = {
     extensions: ['.js'],
     alias: {
       '@App': path.resolve(__dirname, '../', 'src/'),
+      '@Actions': path.resolve(__dirname, '../', 'src/actions/'),
+      '@Reducers': path.resolve(__dirname, '../', 'src/reducers/'),
       '@Components': path.resolve(__dirname, '../', 'src/components/'),
+      '@Common': path.resolve(__dirname, '../', 'src/components/common/'),
       '@Layout': path.resolve(__dirname, '../', 'src/components/Layout/'),
       '@Pages': path.resolve(__dirname, '../', 'src/components/Pages/'),
       '@Utilities': path.resolve(__dirname, '../', 'src/utils/'),
