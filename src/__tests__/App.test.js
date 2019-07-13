@@ -1,19 +1,27 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import rootReducer from '@Reducers/';
 import App from '@App/App';
 import Header from '@Layout/Header/Header';
 import Nav from '@Layout/Header/Nav/Nav';
 import Footer from '@Layout/Footer/Footer';
 import FooterGroup from '@Layout/Footer/FooterGroup/FooterGroup';
-import LandingPage from '../components/Pages/LandingPage/LandingPage';
-import TitledText from '../components/common/TitledText/TitledText';
+import LandingPage from '@Pages/LandingPage/LandingPage';
+import TitledText from '@Common/TitledText/TitledText';
+
+const store = createStore(rootReducer, {});
 
 describe('<App /> Component', () => {
   it('Renders without crashing', () => {
-    shallow(<App />);
+    mount(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
   });
 });
-
 
 describe('<Header /> Component', () => {
   it('Renders without crashing', () => {

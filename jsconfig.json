@@ -8,8 +8,17 @@
       "@App/*": [
         "./src/*"
       ],
+      "@Actions/*": [
+        "./src/actions/*"
+      ],
+      "@Reducers/*": [
+        "./src/reducers/*"
+      ],
       "@Components/*": [
         "./src/components/*"
+      ],
+      "@Common/*": [
+        "./src/components/common/*"
       ],
       "@Layout/*": [
         "./src/components/Layout/*"
