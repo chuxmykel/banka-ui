@@ -1,6 +1,14 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { DefinePlugin } = require('webpack');
+const { config } = require('dotenv');
+
+const env = config().parsed;
+const envKeys = Object.keys(env).reduce((prev, next) => {
+  prev[`process.env.${next}`] = JSON.stringify(env[next]);
+  return prev;
+}, {});
 
 module.exports = {
   entry: './src/index.js',
@@ -35,6 +43,7 @@ module.exports = {
       template: 'public/index.html',
       favicon: 'public/favicon.png',
     }),
+    new DefinePlugin(envKeys),
   ],
   devServer: {
     contentBase: path.resolve(__dirname, 'build'),

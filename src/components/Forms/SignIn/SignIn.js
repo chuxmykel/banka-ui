@@ -8,15 +8,12 @@ import Modal from '@Common/Modal/Modal';
 import FormInput from '@Components/Forms/FormInput/FormInput';
 import Button from '@Common/Button/Button';
 import { closeModal } from '@Actions/uiActions';
-import { signUp } from '@Actions/authActions';
-import './SignUp.css';
+import { logIn } from '@Actions/authActions';
 
 class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: '',
-      lastName: '',
       email: '',
       password: '',
       isFormValid: true,
@@ -49,22 +46,18 @@ class SignUp extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const {
-      firstName,
-      lastName,
       email,
       password,
       errors,
     } = this.state;
-    const { register, history } = this.props;
+    const { signIn, history } = this.props;
     const formIsValid = this.validateForm();
 
     if (!formIsValid) {
       return this.setFormValidity(errors);
     }
 
-    register({
-      firstName,
-      lastName,
+    signIn({
       email,
       password,
     }, history);
@@ -73,27 +66,21 @@ class SignUp extends Component {
   closeModal = () => {
     const { close } = this.props;
     this.setState({
-      firstName: '',
-      lastName: '',
       email: '',
       password: '',
       isFormValid: true,
       errors: {},
     });
-    return close('signup');
+    return close('signin');
   }
 
   validateForm = () => {
     const {
-      firstName,
-      lastName,
       email,
       password,
       errors,
     } = this.state;
 
-    errors.firstName = validate('firstName', firstName).firstName;
-    errors.lastName = validate('lastName', lastName).lastName;
     errors.email = validate('email', email).email;
     errors.password = validate('password', password).password;
 
@@ -118,8 +105,6 @@ class SignUp extends Component {
 
   render() {
     const {
-      firstName,
-      lastName,
       email,
       password,
       isFormValid,
@@ -135,26 +120,8 @@ class SignUp extends Component {
     return (
       <Modal close={this.closeModal} open={open}>
         <div className="signup">
-          <h3 className="form-header">Sign up</h3>
+          <h3 className="form-header">Sign in</h3>
           <form>
-            <FormInput
-              name="firstName"
-              value={firstName}
-              type="text"
-              handleChange={this.handleChange}
-              placeholder="Enter your first name..."
-              title="First Name"
-              error={errors.firstName}
-            />
-            <FormInput
-              name="lastName"
-              value={lastName}
-              type="text"
-              handleChange={this.handleChange}
-              placeholder="Enter your last name..."
-              title="Last Name"
-              error={errors.lastName}
-            />
             <FormInput
               name="email"
               value={email}
@@ -176,7 +143,7 @@ class SignUp extends Component {
             <Button
               type="submit"
               className="submit-btn"
-              text={authenticating ? '...Loading' : 'SIGN UP'}
+              text={authenticating ? '...Loading' : 'SIGN IN'}
               handleClick={this.handleSubmit}
               disabled={authenticating || authenticated ? true : !isFormValid}
             />
@@ -191,7 +158,7 @@ class SignUp extends Component {
 SignUp.propTypes = {
   open: PropTypes.bool.isRequired,
   close: PropTypes.func.isRequired,
-  register: PropTypes.func.isRequired,
+  signIn: PropTypes.func.isRequired,
   authenticating: PropTypes.bool.isRequired,
   authenticated: PropTypes.bool.isRequired,
   error: PropTypes.string.isRequired,
@@ -199,7 +166,7 @@ SignUp.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  open: state.ui.modal === 'signup' ? state.ui.modalOpen : false,
+  open: state.ui.modal === 'signin' ? state.ui.modalOpen : false,
   authenticating: state.auth.authenticating,
   authenticated: state.auth.isAuthenticated,
   error: state.auth.error,
@@ -207,7 +174,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   close: modal => dispatch(closeModal(modal)),
-  register: (data, history) => dispatch(signUp(data, history)),
+  signIn: (data, history) => dispatch(logIn(data, history)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(SignUp));

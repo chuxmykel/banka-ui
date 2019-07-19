@@ -5,7 +5,7 @@ import {
   MODAL_CLOSE,
   AUTHENTICATING,
   SET_CURRENT_USER,
-  EMAIL_EXISTS,
+  SERVER_AUTH_ERROR,
 } from '@Actions/types';
 
 
@@ -51,7 +51,7 @@ describe('Sign up Actions and Reducers tests', () => {
 
   it('should display error message', () => {
     const state = authReducer(authState, {
-      type: EMAIL_EXISTS,
+      type: SERVER_AUTH_ERROR,
       payload: 'This works',
     });
     expect(state.authenticating).toEqual(false);

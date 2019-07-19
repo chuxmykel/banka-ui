@@ -6,6 +6,7 @@ import Header from '@Layout/Header/Header';
 import Footer from '@Layout/Footer/Footer';
 import TitledText from '@Common/TitledText/TitledText';
 import SignUp from '@Components/Forms/SignUp/SignUp';
+import SignIn from '@Components/Forms/SignIn/SignIn';
 import { openModal } from '@Actions/uiActions';
 import text from '@Utilities/text';
 import Cards from '@Images/cards.png';
@@ -63,6 +64,7 @@ class LandingPage extends Component {
         </main>
         <Footer />
         <SignUp />
+        <SignIn />
       </div>
     );
   }
