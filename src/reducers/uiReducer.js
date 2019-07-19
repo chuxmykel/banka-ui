@@ -5,6 +5,7 @@ import {
 
 export const initialState = {
   modalOpen: false,
+  modal: 'signup',
 };
 
 export const uiReducer = (state = initialState, action) => {
@@ -13,11 +14,13 @@ export const uiReducer = (state = initialState, action) => {
       return {
         ...state,
         modalOpen: true,
+        modal: action.payload,
       };
     case MODAL_CLOSE:
       return {
         ...state,
         modalOpen: false,
+        modal: action.payload,
       };
     default:
       return state;
