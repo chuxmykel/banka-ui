@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: JSON.stringify(process.env.API_URL),
+  baseURL: process.env.API_URL || 'https://a-bank.herokuapp.com/api/v1',
 });
 
 export const setAuthToken = (token) => {
