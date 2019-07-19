@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
+
+.input-div,
+.error {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  font-family: 'Indie Flower', cursive;
+  font-size: 18px;
+}
+
+.input-div input,
+.error input {
+  flex: 6;
+  height: 50px;
+  padding: 5px 0 0 10px;
+  border: 1px solid black;
+  box-sizing: border-box;
+  border-radius: 0 25px 25px 0;
+  font-family: 'Indie Flower', cursive;
+  font-size: 18px;
+  outline: none;
+  transition: all 0.30s ease-in-out;
+}
+
+.error input {
+  box-shadow: 0 0 5px rgb(238, 81, 81);
+  border: 1px solid rgb(238, 81, 81);
+}
+
+.input-div input:focus {
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  padding: 5px 0 0 10px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid rgba(81, 203, 238, 1);
+}
+
+
+.input-div input::placeholder {
+  color: rgba(128, 128, 128, 0.5);
+}
+
+
+.title-div {
+  flex: 2;
+  height: 50px;
+  border-radius: 25px 0 0 0;
+  background: black;
+  color: white;
+  padding: 14px 5px 16px 5px;
+}
+
+.error-div {
+  margin-top: 5px;
+  font-family: 'Inconsolata', monospace;
+  color: red;
+}

@@ -1,15 +1,29 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { openModal } from '@Actions/uiActions';
 import './Nav.css';
 
-const Nav = () => (
-  <nav>
-    <ul>
-      <li>Log in</li>
-      <div className="important">
-        <li>Sign up</li>
-      </div>
-    </ul>
-  </nav>
-);
+const Nav = (props) => {
+  const { open } = props;
+  return (
+    <nav>
+      <ul>
+        <li><button type="button" onClick={() => open('signin')}>Log in</button></li>
+        <div className="important">
+          <li><button type="button" onClick={() => open('signup')}>Sign up</button></li>
+        </div>
+      </ul>
+    </nav>
+  );
+};
 
-export default Nav;
+Nav.propTypes = {
+  open: PropTypes.func.isRequired,
+};
+
+const mapDispatchToProps = dispatch => ({
+  open: modal => dispatch(openModal(modal)),
+});
+
+export default connect(null, mapDispatchToProps)(Nav);

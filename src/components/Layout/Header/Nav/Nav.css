@@ -9,13 +9,32 @@ nav ul {
   font-size: 18px;
 }
 
+nav button {
+  background: none;
+  border: none;
+  font-family: 'Ruda', sans-serif;
+  font-size: 18px;
+  width: 105px;
+  height: 40px;
+  outline: none;
+  transition: all .3s;
+}
+
+nav button:hover {
+  transform: scale(1.2);
+  color: grey;
+}
+
 .important {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: black;
-  color: white;
   width: 112px;
   height: 40px;
   border-radius: 10px;
+}
+
+.important button {
+  color: white;
 }

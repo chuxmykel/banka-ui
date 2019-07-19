@@ -3,10 +3,12 @@ import {
   MODAL_CLOSE,
 } from '@Actions/types';
 
-export const openModal = () => ({
+export const openModal = modal => ({
   type: MODAL_OPEN,
+  payload: modal,
 });
 
-export const closeModal = () => ({
+export const closeModal = modal => ({
   type: MODAL_CLOSE,
+  payload: modal,
 });

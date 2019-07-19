@@ -2,14 +2,13 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import rootReducer from '@Reducers/';
 import App from '@App/App';
 import Header from '@Layout/Header/Header';
 import Nav from '@Layout/Header/Nav/Nav';
 import Footer from '@Layout/Footer/Footer';
 import FooterGroup from '@Layout/Footer/FooterGroup/FooterGroup';
-import LandingPage from '@Pages/LandingPage/LandingPage';
 import TitledText from '@Common/TitledText/TitledText';
+import rootReducer from '@Reducers/';
 
 const store = createStore(rootReducer, {});
 
@@ -18,7 +17,7 @@ describe('<App /> Component', () => {
     mount(
       <Provider store={store}>
         <App />
-      </Provider>
+      </Provider>,
     );
   });
 });
@@ -31,7 +30,11 @@ describe('<Header /> Component', () => {
 
 describe('<Nav /> Component', () => {
   it('Renders without crashing', () => {
-    shallow(<Nav />);
+    mount(
+      <Provider store={store}>
+        <Nav />
+      </Provider>,
+    );
   });
 });
 
@@ -44,12 +47,6 @@ describe('<Footer /> Component', () => {
 describe('<FooterGroup /> Component', () => {
   it('Renders without crashing', () => {
     shallow(<FooterGroup title="test" item={['test 1', 'test 2', 'test 3', 'test 4']} />);
-  });
-});
-
-describe('<LandingPage /> Component', () => {
-  it('Renders without crashing', () => {
-    shallow(<LandingPage />);
   });
 });
 
