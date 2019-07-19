@@ -5,9 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "webpack-dev-server --open --config build-utils/webpack.config.js --env.env=dev",
+    "start": "export DEBUG=prod && node server/app.js",
+    "dev": "webpack-dev-server --open --config build-utils/webpack.config.js --env.env=dev",
     "build": "webpack --config build-utils/webpack.config.js --env.env=prod",
-    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls"
+    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
+    "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -35,6 +37,10 @@
   "homepage": "https://github.com/chuxmykel/banka-ui#readme",
   "dependencies": {
     "axios": "^0.19.0",
+    "chalk": "^2.4.2",
+    "debug": "^4.1.1",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
     "jwt-decode": "^2.2.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
