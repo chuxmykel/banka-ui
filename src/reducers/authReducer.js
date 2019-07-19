@@ -2,7 +2,7 @@ import isEmpty from '@Utilities/isEmpty';
 import {
   AUTHENTICATING,
   SET_CURRENT_USER,
-  EMAIL_EXISTS,
+  SERVER_AUTH_ERROR,
 } from '@Actions/types';
 
 export const initialState = {
@@ -27,7 +27,7 @@ export const authReducer = (state = initialState, action) => {
         isAuthenticated: !isEmpty(action.payload),
         user: action.payload,
       };
-    case EMAIL_EXISTS:
+    case SERVER_AUTH_ERROR:
       return {
         ...state,
         authenticating: false,
