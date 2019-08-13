@@ -4,6 +4,7 @@ import {
   AUTHENTICATING,
   SET_CURRENT_USER,
   SERVER_AUTH_ERROR,
+  MODAL_CLOSE,
 } from '@Actions/types';
 
 export const setCurrentUser = decoded => ({
@@ -24,6 +25,10 @@ export const signUp = (userData, history) => async (dispatch) => {
       dispatch(setCurrentUser(jwtDecode(data[0].token)));
       history.push('/dashboard');
     }
+    dispatch({
+      type: MODAL_CLOSE,
+      payload: 'signup',
+    });
   } catch (err) {
     const { error } = err.response.data;
     return dispatch({
@@ -46,6 +51,10 @@ export const logIn = (userData, history) => async (dispatch) => {
       dispatch(setCurrentUser(jwtDecode(data[0].token)));
       history.push('/dashboard');
     }
+    dispatch({
+      type: MODAL_CLOSE,
+      payload: 'signin',
+    });
   } catch (err) {
     const { error } = err.response.data;
     return dispatch({
@@ -55,4 +64,9 @@ export const logIn = (userData, history) => async (dispatch) => {
   }
 };
 
-export const logOut = '';
+export const logOut = history => (dispatch) => {
+  localStorage.removeItem('jwtToken');
+  setAuthToken(false);
+  dispatch(setCurrentUser({}));
+  history.push('/');
+};

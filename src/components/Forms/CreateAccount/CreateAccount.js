@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Loader from 'react-loader-spinner';
 import validate from '@Utilities/validate';
@@ -8,14 +7,14 @@ import Modal from '@Common/Modal/Modal';
 import FormInput from '@Components/Forms/FormInput/FormInput';
 import Button from '@Common/Button/Button';
 import { closeModal } from '@Actions/uiActions';
-import { logIn } from '@Actions/authActions';
+import { createAccount } from '@Actions/accountActions';
 
-class SignIn extends Component {
+class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      password: '',
+      accountType: 'savings',
+      initialDeposit: 0,
       isFormValid: true,
       errors: {},
     };
@@ -25,7 +24,6 @@ class SignIn extends Component {
     const { errors } = this.state;
     const { error } = this.props;
     if (prevProps.error !== error) {
-      errors.email = error;
       this.setFormValidity(errors);
       this.setState({
         errors,
@@ -46,43 +44,38 @@ class SignIn extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const {
-      email,
-      password,
+      accountType,
+      initialDeposit,
       errors,
     } = this.state;
-    const { signIn, history } = this.props;
+    const { create } = this.props;
     const formIsValid = this.validateForm();
 
     if (!formIsValid) {
       return this.setFormValidity(errors);
     }
 
-    signIn({
-      email,
-      password,
-    }, history);
+    create({ accountType, initialDeposit });
   }
 
   closeModal = () => {
     const { close } = this.props;
     this.setState({
-      email: '',
-      password: '',
+      accountType: 'savings',
+      initialDeposit: 0,
       isFormValid: true,
       errors: {},
     });
-    return close('signin');
+    return close('createAccount');
   }
 
   validateForm = () => {
     const {
-      email,
-      password,
+      initialDeposit,
       errors,
     } = this.state;
 
-    errors.email = validate('email', email).email;
-    errors.password = validate('password', password).password;
+    errors.initialDeposit = validate('initialDeposit', `${initialDeposit}`).initialDeposit;
 
     this.setState({ errors });
     return this.setFormValidity(errors);
@@ -105,83 +98,80 @@ class SignIn extends Component {
 
   render() {
     const {
-      email,
-      password,
+      accountType,
+      initialDeposit,
       isFormValid,
       errors,
     } = this.state;
 
     const {
       open,
-      authenticating,
-      authenticated,
+      loading,
     } = this.props;
 
     return (
       <Modal close={this.closeModal} open={open}>
         <div className="signup">
-          <h3 className="form-header">Sign in</h3>
+          <h3 className="form-header">Create Account</h3>
           <form>
             <FormInput
-              name="email"
-              value={email}
-              type="email"
+              name="accountType"
+              value={accountType}
+              type="select"
               handleChange={this.handleChange}
-              placeholder="john.doe@foo.bar"
-              title="Email"
-              error={errors.email}
-            />
+              title="Type"
+              error={errors.accountType}
+            >
+              <option value="savings">Savings</option>
+              <option value="current">Current</option>
+              <option value="loan">Loan</option>
+            </FormInput>
             <FormInput
-              name="password"
-              value={password}
-              type="password"
+              name="initialDeposit"
+              value={initialDeposit}
+              type="number"
               handleChange={this.handleChange}
-              placeholder="**********"
-              title="Password"
-              error={errors.password}
+              title="Initial Deposit"
+              error={errors.initialDeposit}
             />
             <Button
               type="submit"
               className="submit-btn"
-              text={authenticating ? (
+              text={loading ? (
                 <Loader
                   type="ThreeDots"
                   color="#888888"
                   height={50}
                   width={100}
                 />
-              ) : 'SIGN IN'}
+              ) : 'CREATE ACCOUNT'}
               handleClick={this.handleSubmit}
-              disabled={authenticating || authenticated ? true : !isFormValid}
+              disabled={loading || !isFormValid}
             />
           </form>
         </div>
-        <span className="reminder">Have an account? Log in</span>
       </Modal>
     );
   }
 }
 
-SignIn.propTypes = {
+SignUp.propTypes = {
   open: PropTypes.bool.isRequired,
   close: PropTypes.func.isRequired,
-  signIn: PropTypes.func.isRequired,
-  authenticating: PropTypes.bool.isRequired,
-  authenticated: PropTypes.bool.isRequired,
+  create: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
   error: PropTypes.string.isRequired,
-  history: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => ({
-  open: state.ui.modal === 'signin' ? state.ui.modalOpen : false,
-  authenticating: state.auth.authenticating,
-  authenticated: state.auth.isAuthenticated,
+  open: state.ui.modal === 'createAccount' ? state.ui.modalOpen : false,
+  loading: state.ui.loading,
   error: state.auth.error,
 });
 
 const mapDispatchToProps = dispatch => ({
   close: modal => dispatch(closeModal(modal)),
-  signIn: (data, history) => dispatch(logIn(data, history)),
+  create: data => dispatch(createAccount(data)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(SignIn));
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);

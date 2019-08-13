@@ -23,6 +23,7 @@ nav button {
 nav button:hover {
   transform: scale(1.2);
   color: grey;
+  cursor: pointer;
 }
 
 .important {

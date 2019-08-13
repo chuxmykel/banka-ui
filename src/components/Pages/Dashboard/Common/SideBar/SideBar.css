@@ -1,0 +1,40 @@
+.sidebar {
+  width: 21%;
+  background-color: #222222;
+  color: white;
+  height: 100vh;
+}
+
+.profile-image {
+  height: 100px;
+  width: 100px;
+  overflow: hidden;
+  border-radius: 10px 50px 50px 50px;
+  border: 7px solid #e5e5e551;
+  margin: 0 0 15px 0;
+}
+
+.profile-image img {
+  height: 100px;
+  width: 100px;
+}
+
+.profile-name {
+  display: flex;
+}
+
+.profile-name i{
+  margin: 0 0 0 10px;
+}
+
+.mini-profile {
+  display: flex;
+  flex-direction: column;
+  height: 40vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.log-out {
+  margin-top: 5vh;
+}

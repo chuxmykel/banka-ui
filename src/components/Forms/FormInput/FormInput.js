@@ -11,7 +11,28 @@ const FormInput = (props) => {
     placeholder,
     error,
     title,
+    children,
   } = props;
+
+  if (type === 'select') {
+    return (
+      <Fragment>
+        <div className={error ? 'error' : 'input-div'}>
+          <div className="title-div">{title}</div>
+          <select
+            name={name}
+            value={value}
+            onChange={handleChange}
+          >
+            {children}
+          </select>
+        </div>
+        <div className="error-div">
+          {error && <div>{error}</div>}
+        </div>
+      </Fragment>
+    );
+  }
 
   return (
     <Fragment>
@@ -34,16 +55,22 @@ const FormInput = (props) => {
 
 FormInput.propTypes = {
   name: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
   handleChange: PropTypes.func.isRequired,
   type: PropTypes.string.isRequired,
-  placeholder: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
   error: PropTypes.string,
   title: PropTypes.string.isRequired,
+  children: PropTypes.node,
 };
 
 FormInput.defaultProps = {
   error: '',
+  placeholder: '',
+  children: null,
 };
 
 export default FormInput;

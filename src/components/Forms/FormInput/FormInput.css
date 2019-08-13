@@ -12,7 +12,8 @@
 }
 
 .input-div input,
-.error input {
+.input-div select,
+.error input{
   flex: 6;
   height: 50px;
   padding: 5px 0 0 10px;
@@ -30,18 +31,17 @@
   border: 1px solid rgb(238, 81, 81);
 }
 
-.input-div input:focus {
+.input-div input:focus,
+.input-div select:focus {
   box-shadow: 0 0 5px rgba(81, 203, 238, 1);
   padding: 5px 0 0 10px;
   margin: 5px 1px 3px 0px;
   border: 1px solid rgba(81, 203, 238, 1);
 }
 
-
 .input-div input::placeholder {
   color: rgba(128, 128, 128, 0.5);
 }
-
 
 .title-div {
   flex: 2;

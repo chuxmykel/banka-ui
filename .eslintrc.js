@@ -27,6 +27,7 @@ module.exports = {
     "react/prefer-stateless-function": 0,
     "react/forbid-prop-types": 0,
     "react/no-array-index-key": 0,
+    "react/no-did-update-set-state": 0,
     "import/no-extraneous-dependencies": [2, {
       "devDependencies": ["**/*.test.js", "**/*.spec.js", "src/setupTests.js", "build-utils/*"]
     }],

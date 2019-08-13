@@ -1,8 +1,8 @@
-/* eslint-disable react/no-did-update-set-state */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Loader from 'react-loader-spinner';
 import validate from '@Utilities/validate';
 import Modal from '@Common/Modal/Modal';
 import FormInput from '@Components/Forms/FormInput/FormInput';
@@ -176,7 +176,14 @@ class SignUp extends Component {
             <Button
               type="submit"
               className="submit-btn"
-              text={authenticating ? '...Loading' : 'SIGN UP'}
+              text={authenticating ? (
+                <Loader
+                  type="ThreeDots"
+                  color="#888888"
+                  height={50}
+                  width={100}
+                />
+              ) : 'SIGN UP'}
               handleClick={this.handleSubmit}
               disabled={authenticating || authenticated ? true : !isFormValid}
             />
