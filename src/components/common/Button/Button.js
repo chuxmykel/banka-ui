@@ -28,7 +28,10 @@ Button.propTypes = {
   type: PropTypes.string.isRequired,
   handleClick: PropTypes.func.isRequired,
   className: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
+  text: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+  ]).isRequired,
   disabled: PropTypes.bool.isRequired,
 };
 

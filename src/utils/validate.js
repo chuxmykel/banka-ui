@@ -30,10 +30,14 @@ const validate = (name, value) => {
         ? 'password cannot be empty' : isLength(value, { min: 8 })
           ? '' : 'Provide a minimum of 8 characters for password';
       break;
+    case 'initialDeposit':
+      errors[name] = isEmpty(value)
+        ? 'please provide a value' : value < 5000
+          ? 'initial deposit must be NGN 5000 or greater' : '';
+      break;
     default:
       break;
   }
-  // console.table(errors);
   return errors;
 };
 

@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+.user-dashboard {
+  font-family: 'Varela Round', sans-serif;
+  font-size: 18px;
+  display: flex;
+}
+
+.profile-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.account-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.name-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  box-shadow: 2px 5px 8px #888888;
+  border-radius: 10px;
+  font-size: 48px;
+  height: 100px;
+  width: 88%;
+  margin: 0 0 50px 0;
+}
+
+.profile-details {
+  box-shadow: 2px 5px 8px #888888;
+  border-radius: 10px;
+  width: 88%;
+}
+
+.profile-details table{
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  border: 1px solid #e5e5e5;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.profile-details th {
+  font-weight: bold;
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px;
+  border: 1px solid #e5e5e5;
+  height: 50px;
+}
+
+.profile-details td {
+  font-weight: 100;
+  padding: 5px;
+  border: 1px solid #e5e5e5;
+  width: 75%;
+  height: 50px;
+}
+
+.account-details {
+  box-shadow: 2px 5px 8px #888888;
+  border-radius: 10px;
+  width: 88%;
+  max-height: 300px;
+  overflow: auto;
+}
+
+.transaction {
+  max-height: 200px;
+  margin-top: 50px;
+}
+
+.account-details table {
+  border: 1px solid #e5e5e5;
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 24px;
+  text-align: left;
+}
+
+.account-details thead th{
+  background-color: #e5e5e5;
+}
+
+.account-details th {
+  font-weight: bold;
+  padding: 5px;
+  border: 1px solid #e5e5e5;
+  height: 50px;
+}
+
+.account-details td {
+  font-weight: 100;
+  padding: 5px;
+  border: 1px solid #e5e5e5;
+  height: 50px;
+}
+
+.acct-btn {
+  border: none;
+  border-radius: 5px;
+  background-color: #888888;
+  width: 100%;
+  height: 30px;
+  color: white;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.acct-btn:active {
+  transform: scale(.9);
+}
+
+.acct-btn:focus {
+  outline: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.transaction-header {
+  margin: 10px;
+  text-align: center;
+}
+
+.credit {
+  color: green;
+}
+
+.debit {
+  color: red;
+}
+
+.create {
+  position: fixed;
+  bottom: calc(100vh - 95vh);
+  right: calc(100vw - 95vw);
+  color: #e0e0e0;
+  font-size: 30px;
+  background: black;
+  border: none;
+  box-shadow: 5px 5px 15px black;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  transition: all .2s;
+}
+
+.create:hover {
+  background: grey;
+  transform: scale(1.1);
+}
+
+.create:focus {
+  outline: none;
+}
+
+.create:active {
+  transform: scale(.9);
+}

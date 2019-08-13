@@ -1,0 +1,9 @@
+.current-tab {
+  display: block;
+  width: 79%;
+  padding: 2% 2.5% 2.5% 2.5%;
+}
+
+.tab {
+  display: none;
+}

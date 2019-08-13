@@ -25,6 +25,7 @@ module.exports = {
       '@Common': path.resolve(__dirname, '../', 'src/components/common/'),
       '@Layout': path.resolve(__dirname, '../', 'src/components/Layout/'),
       '@Pages': path.resolve(__dirname, '../', 'src/components/Pages/'),
+      '@Dashboard': path.resolve(__dirname, '../', 'src/components/Pages/Dashboard'),
       '@Utilities': path.resolve(__dirname, '../', 'src/utils/'),
       '@Images': path.resolve(__dirname, '../', 'src/images/'),
     },
@@ -38,7 +39,7 @@ module.exports = {
   ],
   devServer: {
     contentBase: path.resolve(__dirname, 'build'),
-    port: 9000,
+    port: 9090,
     historyApiFallback: true,
   },
 };

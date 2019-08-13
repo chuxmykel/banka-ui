@@ -26,6 +26,9 @@
       "@Pages/*": [
         "./src/components/Pages/*"
       ],
+      "@Dashboard/*": [
+        "./src/components/Pages/Dashboard/*"
+      ],
       "@Utilities/*": [
         "./src/utils/*"
       ],

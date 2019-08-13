@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import UserDashboard from '@Pages/Dashboard/UserDashboard/UserDashboard';
 import LandingPage from '@Pages/LandingPage/LandingPage';
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import './app.css';
 
 const App = (props) => {

@@ -10,6 +10,7 @@ module.exports = {
     '^@Common/(.*)$': '<rootDir>/src/components/common/$1',
     '^@Layout/(.*)$': '<rootDir>/src/components/Layout/$1',
     '^@Pages/(.*)$': '<rootDir>/src/components/Pages/$1',
+    '^@Dashboard/(.*)$': '<rootDir>/src/components/Pages/Dashboard/$1',
     '^@Utilities/(.*)$': '<rootDir>/src/utils/$1',
     '^@Images/(.*)$': '<rootDir>/src/images/$1',
   },

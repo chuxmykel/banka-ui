@@ -1,0 +1,54 @@
+.sidebar-menu-item {
+  background-color: black;
+  width: 100%;
+  font-size: 18px;
+  font-family: 'Varela Round', sans-serif;
+  font-weight: 100;
+  margin: 0 0 10px 0;
+  display: flex;
+  height: 50px;
+  cursor: pointer;
+}
+
+.sidebar-menu-item:focus {
+  outline: none;
+}
+
+.special {
+  background-color: rgba(0, 0, 0, 0.393);
+}
+
+.menu-item-content {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  flex: 50;
+  padding: 0 0 0 20px;
+}
+
+.active {
+  flex: 1;
+  width: 10px;
+  background-color: grey;
+  height: 50px;
+}
+
+.inactive {
+  flex: 1;
+  width: 10px;
+  background-color: black;
+  height: 50px;
+}
+
+.sidebar-menu-item:hover {
+  background-color: #7f7f7f21;
+}
+
+.sidebar-menu-item p {
+  flex: 8;
+  text-transform: uppercase;
+}
+
+.sidebar-menu-item i {
+  flex: 2;
+}
