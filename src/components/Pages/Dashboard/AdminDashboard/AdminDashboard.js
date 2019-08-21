@@ -1,42 +1,42 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import SideBar from '@App/components/Pages/Dashboard/Common/SideBar/UserSideBar/UserSideBar';
+import SideBar from '@App/components/Pages/Dashboard/Common/SideBar/AdminSideBar/AdminSideBar';
 import ProfileTab from '@Dashboard/Tabs/ProfileTab';
-import AccountTab from '@App/components/Pages/Dashboard/Tabs/AccountsTab';
-import './UserDashboard.css';
+import AllAccountsTab from '@App/components/Pages/Dashboard/Tabs/AllAccountsTab';
+import './AdminDashboard.css';
 
-class UserDashboard extends Component {
+class AdminDashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
       profile: true,
-      account: false,
+      allAccount: false,
     };
   }
 
   handleClick = (name) => {
     this.setState({
       profile: false,
-      account: false,
+      allAccount: false,
       [name]: true,
     });
   }
 
   render = () => {
     const { user: { firstName, lastName } } = this.props;
-    const { profile, account } = this.state;
+    const { profile, allAccount } = this.state;
     return (
       <div className="user-dashboard">
         <SideBar handleClick={this.handleClick} name={`${firstName} ${lastName}`} />
         <ProfileTab active={profile} />
-        <AccountTab active={account} />
+        <AllAccountsTab active={allAccount} />
       </div>
     );
   };
 }
 
-UserDashboard.propTypes = {
+AdminDashboard.propTypes = {
   user: PropTypes.object.isRequired,
 };
 
@@ -45,4 +45,4 @@ const mapStateToProps = state => ({
 });
 
 
-export default connect(mapStateToProps, null)(UserDashboard);
+export default connect(mapStateToProps, null)(AdminDashboard);

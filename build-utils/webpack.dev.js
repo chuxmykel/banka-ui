@@ -1,5 +1,6 @@
 const { DefinePlugin } = require('webpack');
 const { config } = require('dotenv');
+const path = require('path');
 
 const env = config().parsed;
 const envKeys = Object.keys(env).reduce((prev, next) => {
@@ -13,4 +14,9 @@ module.exports = {
   plugins: [
     new DefinePlugin(envKeys),
   ],
+  devServer: {
+    contentBase: path.resolve(__dirname, 'build'),
+    port: 9090,
+    historyApiFallback: true,
+  },
 };

@@ -49,7 +49,7 @@
   font-weight: bold;
   display: flex;
   justify-content: flex-end;
-  padding: 5px;
+  padding: 10px 5px 5px 5px;
   border: 1px solid #e5e5e5;
   height: 50px;
 }
@@ -68,6 +68,10 @@
   width: 88%;
   max-height: 300px;
   overflow: auto;
+}
+
+.admin-acct-details {
+  max-height: 600px;
 }
 
 .transaction {
@@ -112,11 +116,24 @@
   transition: all .3s;
 }
 
-.acct-btn:active {
+.delete-btn {
+  border: none;
+  border-radius: 5px;
+  background-color: red;
+  width: 100%;
+  height: 30px;
+  color: white;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.acct-btn:active,
+.delete-btn:active {
   transform: scale(.9);
 }
 
-.acct-btn:focus {
+.acct-btn:focus,
+.delete-btn:focus {
   outline: none;
 }
 
@@ -164,4 +181,71 @@
 
 .create:active {
   transform: scale(.9);
+}
+
+.dormant-acct{
+  color: red;
+}
+
+.active-acct{
+  color: green;
+}
+
+.draft-acct{
+  color: grey;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 17px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 11px;
+  width: 11px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: green;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(13px);
+}
+
+.slider.round {
+  border-radius: 17px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }

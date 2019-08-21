@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Loader from 'react-loader-spinner';
 import validate from '@Utilities/validate';
 import Modal from '@Common/Modal/Modal';
 import FormInput from '@Components/Forms/FormInput/FormInput';
 import Button from '@Common/Button/Button';
-import { openModal, closeModal } from '@Actions/uiActions';
-import { logIn } from '@Actions/authActions';
+import { closeModal } from '@Actions/uiActions';
+import { transaction } from '@Actions/accountActions';
 
-class SignIn extends Component {
+class NewTransaction extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      password: '',
+      transactionType: 'credit',
+      accountNumber: '',
+      amount: 0,
       isFormValid: true,
       errors: {},
     };
@@ -34,43 +34,42 @@ class SignIn extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const {
-      email,
-      password,
+      transactionType,
+      accountNumber,
+      amount,
       errors,
     } = this.state;
-    const { signIn, history } = this.props;
+    const { transact } = this.props;
     const formIsValid = this.validateForm();
 
     if (!formIsValid) {
       return this.setFormValidity(errors);
     }
 
-    signIn({
-      email,
-      password,
-    }, history);
+    transact({ transactionType, accountNumber, amount });
   }
 
   closeModal = () => {
     const { close } = this.props;
     this.setState({
-      email: '',
-      password: '',
+      transactionType: 'credit',
+      accountNumber: '',
+      amount: 0,
       isFormValid: true,
       errors: {},
     });
-    return close('signin');
+    return close('newTransaction');
   }
 
   validateForm = () => {
     const {
-      email,
-      password,
+      accountNumber,
+      amount,
       errors,
     } = this.state;
 
-    errors.email = validate('email', email).email;
-    errors.password = validate('password', password).password;
+    errors.accountNumber = validate('accountNumber', accountNumber).accountNumber;
+    errors.amount = validate('amount', `${amount}`).amount;
 
     this.setState({ errors });
     return this.setFormValidity(errors);
@@ -91,91 +90,82 @@ class SignIn extends Component {
     return valid;
   }
 
-  switchForms = () => {
-    const { signUp } = this.props;
-    this.closeModal();
-    signUp();
-  }
-
   render() {
     const {
-      email,
-      password,
+      transactionType,
+      accountNumber,
+      amount,
       isFormValid,
       errors,
     } = this.state;
 
     const {
       open,
-      authenticating,
-      authenticated,
+      loading,
     } = this.props;
 
     const loader = <Loader type="ThreeDots" color="#888888" height={50} width={100} />;
     return (
       <Modal close={this.closeModal} open={open}>
         <div className="signup">
-          <h3 className="form-header">Sign in</h3>
+          <h3 className="form-header">New Transaction</h3>
+          <FormInput
+            name="transactionType"
+            value={transactionType}
+            type="select"
+            handleChange={this.handleChange}
+            title="Type"
+            error={errors.transactionType}
+          >
+            <option value="credit">Credit</option>
+            <option value="debit">Debit</option>
+          </FormInput>
           <form>
             <FormInput
-              name="email"
-              value={email}
-              type="email"
+              name="accountNumber"
+              value={accountNumber}
+              type="text"
               handleChange={this.handleChange}
-              placeholder="john.doe@foo.bar"
-              title="Email"
-              error={errors.email}
+              title="Acc. Number"
+              error={errors.accountNumber}
             />
             <FormInput
-              name="password"
-              value={password}
-              type="password"
+              name="amount"
+              value={amount}
+              type="number"
               handleChange={this.handleChange}
-              placeholder="**********"
-              title="Password"
-              error={errors.password}
+              title="Amount"
+              error={errors.amount}
             />
             <Button
               type="submit"
               className="submit-btn"
-              text={authenticating ? loader : 'SIGN IN'}
+              text={loading ? loader : 'CONFIRM TRANSACTION'}
               handleClick={this.handleSubmit}
-              disabled={authenticating || authenticated ? true : !isFormValid}
+              disabled={loading || !isFormValid}
             />
           </form>
         </div>
-        <span className="reminder">
-          Don&apos;t have an account?
-          {' '}
-          <button type="button" onClick={this.switchForms}>
-            Sign up
-          </button>
-        </span>
       </Modal>
     );
   }
 }
 
-SignIn.propTypes = {
+NewTransaction.propTypes = {
   open: PropTypes.bool.isRequired,
   close: PropTypes.func.isRequired,
-  signIn: PropTypes.func.isRequired,
-  authenticating: PropTypes.bool.isRequired,
-  authenticated: PropTypes.bool.isRequired,
-  history: PropTypes.object.isRequired,
-  signUp: PropTypes.func.isRequired,
+  transact: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
-  open: state.ui.modal === 'signin' ? state.ui.modalOpen : false,
-  authenticating: state.auth.authenticating,
-  authenticated: state.auth.isAuthenticated,
+  open: state.ui.modal === 'newTransaction' ? state.ui.modalOpen : false,
+  loading: state.ui.loading,
 });
 
 const mapDispatchToProps = dispatch => ({
   close: modal => dispatch(closeModal(modal)),
-  signUp: () => dispatch(openModal('signup')),
-  signIn: (data, history) => dispatch(logIn(data, history)),
+  transact: data => dispatch(transaction(data)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(SignIn));
+export default connect(mapStateToProps, mapDispatchToProps)(NewTransaction);

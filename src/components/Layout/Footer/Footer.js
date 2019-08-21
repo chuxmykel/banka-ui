@@ -24,7 +24,7 @@ const Footer = () => (
       <h4>SUBSCRIBE TO OUR MONTHLY NEWSLETTER</h4>
       <form className="news-letter">
         <input type="email" placeholder="Enter your email address" />
-        <button type="submit">Join</button>
+        <button type="button">Join</button>
       </form>
     </div>
   </footer>

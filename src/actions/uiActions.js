@@ -1,8 +1,8 @@
 import {
   MODAL_OPEN,
   MODAL_CLOSE,
-  CLEAR_SERVER_ERROR,
   NOT_AUTHENTICATING,
+  NOT_LOADING,
 } from '@Actions/types';
 
 export const openModal = modal => ({
@@ -19,7 +19,6 @@ export const closeModal = modal => async (dispatch) => {
     type: NOT_AUTHENTICATING,
   });
   return dispatch({
-    type: CLEAR_SERVER_ERROR,
-    payload: '',
+    type: NOT_LOADING,
   });
 };

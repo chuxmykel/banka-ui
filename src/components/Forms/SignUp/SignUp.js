@@ -7,7 +7,7 @@ import validate from '@Utilities/validate';
 import Modal from '@Common/Modal/Modal';
 import FormInput from '@Components/Forms/FormInput/FormInput';
 import Button from '@Common/Button/Button';
-import { closeModal } from '@Actions/uiActions';
+import { openModal, closeModal } from '@Actions/uiActions';
 import { signUp } from '@Actions/authActions';
 import './SignUp.css';
 
@@ -22,18 +22,6 @@ class SignUp extends Component {
       isFormValid: true,
       errors: {},
     };
-  }
-
-  componentDidUpdate(prevProps) {
-    const { errors } = this.state;
-    const { error } = this.props;
-    if (prevProps.error !== error) {
-      errors.email = error;
-      this.setFormValidity(errors);
-      this.setState({
-        errors,
-      });
-    }
   }
 
   handleChange = (e) => {
@@ -116,6 +104,12 @@ class SignUp extends Component {
     return valid;
   }
 
+  switchForms = () => {
+    const { signIn } = this.props;
+    this.closeModal();
+    signIn();
+  }
+
   render() {
     const {
       firstName,
@@ -132,6 +126,7 @@ class SignUp extends Component {
       authenticated,
     } = this.props;
 
+    const loader = <Loader type="ThreeDots" color="#888888" height={50} width={100} />;
     return (
       <Modal close={this.closeModal} open={open}>
         <div className="signup">
@@ -176,20 +171,19 @@ class SignUp extends Component {
             <Button
               type="submit"
               className="submit-btn"
-              text={authenticating ? (
-                <Loader
-                  type="ThreeDots"
-                  color="#888888"
-                  height={50}
-                  width={100}
-                />
-              ) : 'SIGN UP'}
+              text={authenticating ? loader : 'SIGN UP'}
               handleClick={this.handleSubmit}
               disabled={authenticating || authenticated ? true : !isFormValid}
             />
           </form>
         </div>
-        <span className="reminder">Have an account? Log in</span>
+        <span className="reminder">
+          Already have an account?
+          {' '}
+          <button type="button" onClick={this.switchForms}>
+            Log in
+          </button>
+        </span>
       </Modal>
     );
   }
@@ -201,19 +195,19 @@ SignUp.propTypes = {
   register: PropTypes.func.isRequired,
   authenticating: PropTypes.bool.isRequired,
   authenticated: PropTypes.bool.isRequired,
-  error: PropTypes.string.isRequired,
   history: PropTypes.object.isRequired,
+  signIn: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
   open: state.ui.modal === 'signup' ? state.ui.modalOpen : false,
   authenticating: state.auth.authenticating,
   authenticated: state.auth.isAuthenticated,
-  error: state.auth.error,
 });
 
 const mapDispatchToProps = dispatch => ({
   close: modal => dispatch(closeModal(modal)),
+  signIn: () => dispatch(openModal('signin')),
   register: (data, history) => dispatch(signUp(data, history)),
 });
 

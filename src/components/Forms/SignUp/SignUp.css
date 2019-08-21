@@ -11,4 +11,17 @@
   margin-top: 30px;
   display: block;
   text-align: center;
+  font-family: 'Livvic', sans-serif;
+}
+
+.reminder button {
+  font-size: 16px;
+  background: none;
+  border: none;
+  color: royalblue;
+  transition: all .2s;
+}
+
+.reminder button:hover {
+  transform: scale(1.05);
 }

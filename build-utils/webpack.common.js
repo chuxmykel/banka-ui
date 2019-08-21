@@ -37,9 +37,4 @@ module.exports = {
       favicon: 'public/favicon.png',
     }),
   ],
-  devServer: {
-    contentBase: path.resolve(__dirname, 'build'),
-    port: 9090,
-    historyApiFallback: true,
-  },
 };

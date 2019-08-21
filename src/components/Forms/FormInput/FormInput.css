@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Inconsolata|Livvic&display=swap');
 
 .input-div,
 .error {
@@ -7,8 +7,8 @@
   justify-content: center;
   align-items: center;
   height: 50px;
-  font-family: 'Indie Flower', cursive;
-  font-size: 18px;
+  font-family: 'Livvic', sans-serif;
+  font-size: 16px;
 }
 
 .input-div input,
@@ -20,7 +20,7 @@
   border: 1px solid black;
   box-sizing: border-box;
   border-radius: 0 25px 25px 0;
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Livvic', sans-serif;
   font-size: 18px;
   outline: none;
   transition: all 0.30s ease-in-out;
