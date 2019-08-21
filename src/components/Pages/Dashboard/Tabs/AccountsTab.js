@@ -37,9 +37,12 @@ class AccountTab extends Component {
       open,
       loading,
     } = this.props;
+
+    const loader = <Loader type="ThreeDots" color="#888888" height={50} width={100} />;
     const accountData = accounts.map(account => (
       <tr key={account.id}>
         <td>{account.type}</td>
+        <td className={`${account.status}-acct`}>{account.status}</td>
         <td>{account.accountNumber}</td>
         <td>{`NGN ${account.balance}`}</td>
         <td>
@@ -105,6 +108,7 @@ class AccountTab extends Component {
               <thead>
                 <tr>
                   <th>Account Type</th>
+                  <th>Account Status</th>
                   <th>Account Number</th>
                   <th>Account Balance</th>
                   <th />
@@ -115,14 +119,7 @@ class AccountTab extends Component {
               </tbody>
             </table>
           </div>
-          {loading ? (
-            <Loader
-              type="ThreeDots"
-              color="#888888"
-              height={50}
-              width={100}
-            />
-          ) : (
+          {loading ? loader : (
             <div
               className={
                 `account-details transaction${showTransactionPane ? '' : ' hidden'}`

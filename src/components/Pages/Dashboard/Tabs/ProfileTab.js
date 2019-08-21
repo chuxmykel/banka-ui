@@ -26,10 +26,12 @@ class ProfileTab extends Component {
         firstName,
         lastName,
         email,
+        type,
+        isAdmin,
       },
     } = this.props;
     const { active } = this.state;
-
+    const role = isAdmin ? 'Admin' : 'Cashier';
     return (
       <Tab active={active}>
         <div className="profile-tab">
@@ -40,8 +42,8 @@ class ProfileTab extends Component {
             <table>
               <tbody>
                 <tr>
-                  <th>BVN</th>
-                  <td>*******************</td>
+                  <th>{type !== 'client' ? 'ROLE' : 'BVN'}</th>
+                  <td>{type !== 'client' ? role : '*******************'}</td>
                 </tr>
                 <tr>
                   <th>EMAIL</th>
@@ -53,7 +55,7 @@ class ProfileTab extends Component {
                 </tr>
                 <tr>
                   <th>ADDRESS</th>
-                  <td>Edit in profile settings</td>
+                  <td>No. 32, Australopitecus Avenue, CIPE tower.</td>
                 </tr>
               </tbody>
             </table>

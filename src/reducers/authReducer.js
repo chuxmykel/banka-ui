@@ -2,15 +2,12 @@ import isEmpty from '@Utilities/isEmpty';
 import {
   AUTHENTICATING,
   SET_CURRENT_USER,
-  SERVER_AUTH_ERROR,
-  CLEAR_SERVER_ERROR,
   NOT_AUTHENTICATING,
 } from '@Actions/types';
 
 export const initialState = {
   authenticating: false,
   isAuthenticated: false,
-  error: '',
   user: {},
 };
 
@@ -20,7 +17,6 @@ export const authReducer = (state = initialState, action) => {
       return {
         ...state,
         authenticating: true,
-        error: '',
       };
     case NOT_AUTHENTICATING:
       return {
@@ -33,17 +29,6 @@ export const authReducer = (state = initialState, action) => {
         authenticating: false,
         isAuthenticated: !isEmpty(action.payload),
         user: action.payload,
-      };
-    case SERVER_AUTH_ERROR:
-      return {
-        ...state,
-        authenticating: false,
-        error: action.payload,
-      };
-    case CLEAR_SERVER_ERROR:
-      return {
-        ...state,
-        error: action.payload,
       };
     default:
       return state;

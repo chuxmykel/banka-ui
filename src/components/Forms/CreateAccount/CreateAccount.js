@@ -9,26 +9,15 @@ import Button from '@Common/Button/Button';
 import { closeModal } from '@Actions/uiActions';
 import { createAccount } from '@Actions/accountActions';
 
-class SignUp extends Component {
+class CreateAccount extends Component {
   constructor(props) {
     super(props);
     this.state = {
       accountType: 'savings',
-      initialDeposit: 0,
+      initialDeposit: 5000,
       isFormValid: true,
       errors: {},
     };
-  }
-
-  componentDidUpdate(prevProps) {
-    const { errors } = this.state;
-    const { error } = this.props;
-    if (prevProps.error !== error) {
-      this.setFormValidity(errors);
-      this.setState({
-        errors,
-      });
-    }
   }
 
   handleChange = (e) => {
@@ -62,7 +51,7 @@ class SignUp extends Component {
     const { close } = this.props;
     this.setState({
       accountType: 'savings',
-      initialDeposit: 0,
+      initialDeposit: 5000,
       isFormValid: true,
       errors: {},
     });
@@ -109,6 +98,7 @@ class SignUp extends Component {
       loading,
     } = this.props;
 
+    const loader = <Loader type="ThreeDots" color="#888888" height={50} width={100} />;
     return (
       <Modal close={this.closeModal} open={open}>
         <div className="signup">
@@ -137,14 +127,7 @@ class SignUp extends Component {
             <Button
               type="submit"
               className="submit-btn"
-              text={loading ? (
-                <Loader
-                  type="ThreeDots"
-                  color="#888888"
-                  height={50}
-                  width={100}
-                />
-              ) : 'CREATE ACCOUNT'}
+              text={loading ? loader : 'CREATE ACCOUNT'}
               handleClick={this.handleSubmit}
               disabled={loading || !isFormValid}
             />
@@ -155,18 +138,16 @@ class SignUp extends Component {
   }
 }
 
-SignUp.propTypes = {
+CreateAccount.propTypes = {
   open: PropTypes.bool.isRequired,
   close: PropTypes.func.isRequired,
   create: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
-  error: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({
   open: state.ui.modal === 'createAccount' ? state.ui.modalOpen : false,
   loading: state.ui.loading,
-  error: state.auth.error,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -174,4 +155,4 @@ const mapDispatchToProps = dispatch => ({
   create: data => dispatch(createAccount(data)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateAccount);

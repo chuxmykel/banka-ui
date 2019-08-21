@@ -1,9 +1,10 @@
 import jwtDecode from 'jwt-decode';
+import { toast } from 'react-toastify';
 import axiosInstance, { setAuthToken } from '@Utilities/axios';
 import {
   AUTHENTICATING,
   SET_CURRENT_USER,
-  SERVER_AUTH_ERROR,
+  NOT_AUTHENTICATING,
   MODAL_CLOSE,
 } from '@Actions/types';
 
@@ -29,11 +30,14 @@ export const signUp = (userData, history) => async (dispatch) => {
       type: MODAL_CLOSE,
       payload: 'signup',
     });
+    toast.dismiss();
+    toast.success('Registration successful');
   } catch (err) {
     const { error } = err.response.data;
+    toast.dismiss();
+    toast.error(error, { autoClose: 10000 });
     return dispatch({
-      type: SERVER_AUTH_ERROR,
-      payload: error,
+      type: NOT_AUTHENTICATING,
     });
   }
 };
@@ -46,10 +50,14 @@ export const logIn = (userData, history) => async (dispatch) => {
     const response = await axiosInstance.post('auth/signin', userData);
     if (response.status === 200) {
       const { data } = response.data;
+      const { type } = data[0];
+      const pushLocation = type === 'client' ? '/dashboard' : '/admin-dashboard';
       localStorage.setItem('jwtToken', data[0].token);
       setAuthToken(data[0].token);
       dispatch(setCurrentUser(jwtDecode(data[0].token)));
-      history.push('/dashboard');
+      history.push(pushLocation);
+      toast.dismiss();
+      toast.success(`Welcome back ${data[0].firstName.toLocaleLowerCase()}`);
     }
     dispatch({
       type: MODAL_CLOSE,
@@ -57,9 +65,10 @@ export const logIn = (userData, history) => async (dispatch) => {
     });
   } catch (err) {
     const { error } = err.response.data;
+    toast.dismiss();
+    toast.error(error, { autoClose: 10000 });
     return dispatch({
-      type: SERVER_AUTH_ERROR,
-      payload: error,
+      type: NOT_AUTHENTICATING,
     });
   }
 };

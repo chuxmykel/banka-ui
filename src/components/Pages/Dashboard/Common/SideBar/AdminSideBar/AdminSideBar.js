@@ -5,14 +5,14 @@ import { withRouter } from 'react-router-dom';
 import { logOut } from '@Actions/authActions';
 import SideBarMenuItem from '@Dashboard/Common/SideBarMenuItem/SideBarMenuItem';
 import ProfileImage from '@Images/profile-img.jpeg';
-import './SideBar.css';
+import '../SideBar.css';
 
 class SideBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
       profile: true,
-      account: false,
+      allAccount: false,
     };
   }
 
@@ -21,7 +21,7 @@ class SideBar extends Component {
     if (name === 'logout') return null;
     this.setState({
       profile: false,
-      account: false,
+      allAccount: false,
       [name]: true,
     });
     selectTab(name);
@@ -34,7 +34,7 @@ class SideBar extends Component {
 
   render = () => {
     const { name } = this.props;
-    const { profile, account } = this.state;
+    const { profile, allAccount } = this.state;
 
     return (
       <div className="sidebar">
@@ -59,9 +59,9 @@ class SideBar extends Component {
           <SideBarMenuItem
             handleClick={this.handleClick}
             icon="fas fa-wallet"
-            text="accounts"
-            name="account"
-            active={account}
+            text="bank accounts"
+            name="allAccount"
+            active={allAccount}
           />
         </div>
         <div className="log-out">

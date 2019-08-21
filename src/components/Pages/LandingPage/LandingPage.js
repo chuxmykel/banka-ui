@@ -15,9 +15,15 @@ import './LandingPage.css';
 
 class LandingPage extends Component {
   componentDidMount = () => {
-    const { isAuthenticated, history } = this.props;
+    const {
+      isAuthenticated,
+      type,
+      history,
+    } = this.props;
+
     if (isAuthenticated) {
-      history.push('/dashboard');
+      const pushLocation = type === 'client' ? '/dashboard' : 'admin-dashboard';
+      history.push(pushLocation);
     }
   };
 
@@ -46,6 +52,7 @@ class LandingPage extends Component {
                 title="Banka Black & Platinum Card"
                 cta="Order Now"
                 text={text[1]}
+                open={() => open('signin')}
               />
             </div>
           </section>
@@ -55,6 +62,7 @@ class LandingPage extends Component {
                 title="Quick Loans for Young Families"
                 cta="Apply Now"
                 text={text[2]}
+                open={() => open('signin')}
               />
             </div>
             <div className="image-container round">
@@ -72,16 +80,19 @@ class LandingPage extends Component {
 
 LandingPage.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
+  type: PropTypes.string,
   history: PropTypes.object.isRequired,
   open: PropTypes.func,
 };
 
 LandingPage.defaultProps = {
   open: null,
+  type: null,
 };
 
 const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated,
+  type: state.auth.user.type,
 });
 
 const mapDispatchToProps = dispatch => ({
