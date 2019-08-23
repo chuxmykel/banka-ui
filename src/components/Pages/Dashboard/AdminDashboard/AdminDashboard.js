@@ -6,7 +6,7 @@ import ProfileTab from '@Dashboard/Tabs/ProfileTab';
 import AllAccountsTab from '@App/components/Pages/Dashboard/Tabs/AllAccountsTab';
 import './AdminDashboard.css';
 
-class AdminDashboard extends Component {
+export class AdminDashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {

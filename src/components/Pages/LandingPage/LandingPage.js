@@ -13,7 +13,7 @@ import Cards from '@Images/cards.png';
 import Family from '@Images/family.png';
 import './LandingPage.css';
 
-class LandingPage extends Component {
+export class LandingPage extends Component {
   componentDidMount = () => {
     const {
       isAuthenticated,
@@ -22,7 +22,7 @@ class LandingPage extends Component {
     } = this.props;
 
     if (isAuthenticated) {
-      const pushLocation = type === 'client' ? '/dashboard' : 'admin-dashboard';
+      const pushLocation = type === 'client' ? '/dashboard' : '/admin-dashboard';
       history.push(pushLocation);
     }
   };

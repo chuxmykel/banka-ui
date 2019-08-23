@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { openModal } from '@Actions/uiActions';
 import './Nav.css';
 
-const Nav = (props) => {
+export const Nav = (props) => {
   const { open } = props;
   return (
     <nav>

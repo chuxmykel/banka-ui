@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Tab from '@Dashboard/Common/Tab/Tab';
 
-class ProfileTab extends Component {
+export class ProfileTab extends Component {
   constructor(props) {
     super(props);
     this.state = {

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import SideBar from '@App/components/Pages/Dashboard/Common/SideBar/UserSideBar/UserSideBar';
+import SideBar from '@Dashboard/Common/SideBar/UserSideBar/UserSideBar';
 import ProfileTab from '@Dashboard/Tabs/ProfileTab';
-import AccountTab from '@App/components/Pages/Dashboard/Tabs/AccountsTab';
+import AccountTab from '@Dashboard/Tabs/AccountsTab';
 import './UserDashboard.css';
 
-class UserDashboard extends Component {
+export class UserDashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -45,4 +45,4 @@ const mapStateToProps = state => ({
 });
 
 
-export default connect(mapStateToProps, null)(UserDashboard);
+export default connect(mapStateToProps)(UserDashboard);

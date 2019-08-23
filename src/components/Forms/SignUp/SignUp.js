@@ -11,7 +11,7 @@ import { openModal, closeModal } from '@Actions/uiActions';
 import { signUp } from '@Actions/authActions';
 import './SignUp.css';
 
-class SignUp extends Component {
+export class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {

@@ -6,7 +6,7 @@ const FooterGroup = (props) => {
 
   return (
     <div>
-      <h4>{ title }</h4>
+      <h4>{title}</h4>
       <ul>
         {item.map((listItem, index) => <li key={index}>{listItem}</li>)}
       </ul>

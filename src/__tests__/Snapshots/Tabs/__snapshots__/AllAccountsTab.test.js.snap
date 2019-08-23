@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders correctly 1`] = `
+<Tab
+  active={true}
+>
+  <div
+    className="account-tab"
+  >
+    <div
+      className="name-card"
+    >
+      all user's accounts
+    </div>
+    <div
+      className="account-details admin-acct-details"
+    >
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Owner
+            </th>
+            <th>
+              Acct. Number
+            </th>
+            <th>
+              Type
+            </th>
+            <th>
+              Status
+            </th>
+            <th />
+            <th>
+              Balance (₦)
+            </th>
+            <th />
+          </tr>
+        </thead>
+        <tbody />
+      </table>
+    </div>
+  </div>
+  <Connect(DialogueBox)
+    activeDialogue={false}
+    agree={[Function]}
+    agreeText="activate"
+  >
+    <p />
+  </Connect(DialogueBox)>
+  <Connect(DialogueBox)
+    activeDialogue={false}
+    agree={[Function]}
+    agreeText="delete"
+  >
+    <p />
+  </Connect(DialogueBox)>
+  <Connect(NewTransaction) />
+</Tab>
+`;

@@ -1,3 +1,4 @@
+import { should } from 'chai';
 import { initialState as uiState, uiReducer } from '@Reducers/uiReducer';
 import {
   MODAL_OPEN,
@@ -6,6 +7,7 @@ import {
   NOT_LOADING,
 } from '@Actions/types';
 
+should();
 
 describe('Modal Actions And Reducers Tests', () => {
   it('opens the modal', () => {
@@ -34,5 +36,12 @@ describe('Modal Actions And Reducers Tests', () => {
       type: NOT_LOADING,
     });
     expect(state.loading).toEqual(false);
+  });
+
+  it('should return default state', () => {
+    const state = uiReducer(uiState, {
+      type: 'RANDOM_STATE',
+    });
+    state.should.equal(uiState);
   });
 });

@@ -7,7 +7,7 @@ import SideBarMenuItem from '@Dashboard/Common/SideBarMenuItem/SideBarMenuItem';
 import ProfileImage from '@Images/profile-img.jpeg';
 import '../SideBar.css';
 
-class SideBar extends Component {
+export class SideBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,7 +28,7 @@ class SideBar extends Component {
   }
 
   signOut = () => {
-    const { logOut: quit, history } = this.props;
+    const { quit, history } = this.props;
     return quit(history);
   }
 
@@ -55,7 +55,6 @@ class SideBar extends Component {
             name="profile"
             active={profile}
           />
-          {/* <SideBarMenuItem icon="far fa-money-bill-alt" text="transactions" /> */}
           <SideBarMenuItem
             handleClick={this.handleClick}
             icon="fas fa-wallet"
@@ -82,11 +81,11 @@ SideBar.propTypes = {
   name: PropTypes.string.isRequired,
   handleClick: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired,
-  logOut: PropTypes.func.isRequired,
+  quit: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({
-  logOut: history => dispatch(logOut(history)),
+  quit: history => dispatch(logOut(history)),
 });
 
 export default connect(null, mapDispatchToProps)(withRouter(SideBar));

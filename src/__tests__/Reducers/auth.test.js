@@ -1,9 +1,12 @@
+import chai from 'chai';
 import { initialState as authState, authReducer } from '@Reducers/authReducer';
 import {
   AUTHENTICATING,
   SET_CURRENT_USER,
   NOT_AUTHENTICATING,
 } from '@Actions/types';
+
+chai.should();
 
 describe('Sign up Reducers tests', () => {
   it('should set authenticating to true', () => {
@@ -33,5 +36,12 @@ describe('Sign up Reducers tests', () => {
       type: NOT_AUTHENTICATING,
     });
     expect(state.authenticating).toEqual(false);
+  });
+
+  it('should return default state', () => {
+    const state = authReducer(authState, {
+      type: 'RANDOM_TYPE',
+    });
+    state.should.equal(authState);
   });
 });

@@ -8,7 +8,7 @@ import { getAccounts, getAccountTransactions } from '@Actions/accountActions';
 import { openModal } from '@Actions/uiActions';
 import CreateAccount from '@Components/Forms/CreateAccount/CreateAccount';
 
-class AccountTab extends Component {
+export class AccountTab extends Component {
   constructor(props) {
     super(props);
     this.state = {
