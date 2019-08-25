@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Async action creators test Closes a modal successfully 1`] = `
+Array [
+  Object {
+    "payload": "signin",
+    "type": "MODAL_CLOSE",
+  },
+  Object {
+    "type": "NOT_ AUTHENTICATING",
+  },
+  Object {
+    "type": "NOT_ LOADING",
+  },
+]
+`;
+
+exports[`UI Action tests Should return the right types 1`] = `
+Object {
+  "payload": "signin",
+  "type": "MODAL_OPEN",
+}
+`;
+
+exports[`UI Action tests closeModal should return MODAL_CLOSE type with the right modal as payload 1`] = `[Function]`;
+
+exports[`UI Action tests openModal should return MODAL_OPEN type with the right modal as payload 1`] = `
+Object {
+  "payload": "signin",
+  "type": "MODAL_OPEN",
+}
+`;

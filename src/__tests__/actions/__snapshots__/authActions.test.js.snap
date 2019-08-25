@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Auth action tests Account Action tests return values getAccounts should return expected values 1`] = `[Function]`;
+
+exports[`Auth action tests Async action creators test creates FETCH_TODO_SUCCESS when fetching to-dos has been done 1`] = `
+Array [
+  Object {
+    "type": "AUTHENTICATING",
+  },
+  Object {
+    "payload": Object {
+      "email": "kcmykairl@gmail.com",
+      "exp": 1566854702,
+      "firstName": "Kelechi",
+      "iat": 1566768302,
+      "id": 5,
+      "isAdmin": null,
+      "lastName": "Ngwobia",
+      "type": "client",
+    },
+    "type": "SET_CURRENT_USER",
+  },
+  Object {
+    "payload": "signup",
+    "type": "MODAL_CLOSE",
+  },
+]
+`;
+
+exports[`Auth action tests Async action creators test logs out a user successfully 1`] = `
+Array [
+  Object {
+    "payload": Object {},
+    "type": "SET_CURRENT_USER",
+  },
+]
+`;
+
+exports[`Auth action tests Async action creators test signs in a user successfully 1`] = `
+Array [
+  Object {
+    "type": "AUTHENTICATING",
+  },
+  Object {
+    "payload": Object {
+      "email": "kcmykairl@gmail.com",
+      "exp": 1566854702,
+      "firstName": "Kelechi",
+      "iat": 1566768302,
+      "id": 5,
+      "isAdmin": null,
+      "lastName": "Ngwobia",
+      "type": "client",
+    },
+    "type": "SET_CURRENT_USER",
+  },
+  Object {
+    "payload": "signin",
+    "type": "MODAL_CLOSE",
+  },
+]
+`;
+
+exports[`Auth action tests Async action creators test signs up a user successfully 1`] = `
+Array [
+  Object {
+    "type": "AUTHENTICATING",
+  },
+  Object {
+    "payload": Object {
+      "email": "kcmykairl@gmail.com",
+      "exp": 1566854702,
+      "firstName": "Kelechi",
+      "iat": 1566768302,
+      "id": 5,
+      "isAdmin": null,
+      "lastName": "Ngwobia",
+      "type": "client",
+    },
+    "type": "SET_CURRENT_USER",
+  },
+  Object {
+    "payload": "signup",
+    "type": "MODAL_CLOSE",
+  },
+]
+`;
+
+exports[`Auth action tests Auth Action tests return values logout should return expected values 1`] = `[Function]`;
+
+exports[`Auth action tests Auth Action tests return values signin should return expected values 1`] = `[Function]`;
+
+exports[`Auth action tests Auth Action tests return values signup should return expected values 1`] = `[Function]`;
