@@ -1,19 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Account Action tests changeAccountStatus should return expected values 1`] = `[Function]`;
-
-exports[`Account Action tests createAccount should return expected values 1`] = `[Function]`;
-
-exports[`Account Action tests deleteAccount should return expected values 1`] = `[Function]`;
-
-exports[`Account Action tests getAccountTransactions should return expected values 1`] = `[Function]`;
-
-exports[`Account Action tests getAccounts should return expected values 1`] = `[Function]`;
-
-exports[`Account Action tests getAllUsersAccounts should return expected values 1`] = `[Function]`;
-
-exports[`Account Action tests transaction should return expected values 1`] = `[Function]`;
-
 exports[`Account action tests Account Action tests return values changeAccountStatus should return expected values 1`] = `[Function]`;
 
 exports[`Account action tests Account Action tests return values createAccount should return expected values 1`] = `[Function]`;
@@ -27,21 +13,6 @@ exports[`Account action tests Account Action tests return values getAccounts sho
 exports[`Account action tests Account Action tests return values getAllUsersAccounts should return expected values 1`] = `[Function]`;
 
 exports[`Account action tests Account Action tests return values transaction should return expected values 1`] = `[Function]`;
-
-exports[`Account action tests Async action creators test creates FETCH_TODO_SUCCESS when fetching to-dos has been done 1`] = `
-Array [
-  Object {
-    "type": "LOADING",
-  },
-  Object {
-    "payload": undefined,
-    "type": "GET_USER_ACCOUNTS",
-  },
-  Object {
-    "type": "NOT_ LOADING",
-  },
-]
-`;
 
 exports[`Account action tests Async action creators test creates accounts successfully 1`] = `
 Array [

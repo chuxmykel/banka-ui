@@ -15,13 +15,6 @@ Array [
 ]
 `;
 
-exports[`UI Action tests Should return the right types 1`] = `
-Object {
-  "payload": "signin",
-  "type": "MODAL_OPEN",
-}
-`;
-
 exports[`UI Action tests closeModal should return MODAL_CLOSE type with the right modal as payload 1`] = `[Function]`;
 
 exports[`UI Action tests openModal should return MODAL_OPEN type with the right modal as payload 1`] = `
