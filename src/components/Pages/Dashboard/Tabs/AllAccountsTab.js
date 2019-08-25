@@ -14,7 +14,7 @@ import {
 } from '@Actions/accountActions';
 import { openModal } from '@Actions/uiActions';
 
-class AllAccountsTab extends Component {
+export class AllAccountsTab extends Component {
   constructor(props) {
     super(props);
     this.state = {

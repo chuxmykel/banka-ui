@@ -10,7 +10,7 @@ import Button from '@Common/Button/Button';
 import { openModal, closeModal } from '@Actions/uiActions';
 import { logIn } from '@Actions/authActions';
 
-class SignIn extends Component {
+export class SignIn extends Component {
   constructor(props) {
     super(props);
     this.state = {

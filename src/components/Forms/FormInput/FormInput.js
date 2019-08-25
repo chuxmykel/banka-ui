@@ -17,7 +17,7 @@ const FormInput = (props) => {
   if (type === 'select') {
     return (
       <Fragment>
-        <div className={error ? 'error' : 'input-div'}>
+        <div className="input-div">
           <div className="title-div">{title}</div>
           <select
             name={name}
@@ -26,9 +26,6 @@ const FormInput = (props) => {
           >
             {children}
           </select>
-        </div>
-        <div className="error-div">
-          {error && <div>{error}</div>}
         </div>
       </Fragment>
     );

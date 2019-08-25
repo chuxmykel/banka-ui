@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders correctly 1`] = `
+<Tab
+  active={true}
+>
+  <div
+    className="account-tab"
+  >
+    <div
+      className="name-card"
+    >
+      accounts
+    </div>
+    <div
+      className="account-details"
+    >
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Account Type
+            </th>
+            <th>
+              Account Status
+            </th>
+            <th>
+              Account Number
+            </th>
+            <th>
+              Account Balance
+            </th>
+            <th />
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            key="1"
+          >
+            <td>
+              current
+            </td>
+            <td
+              className="active-acct"
+            >
+              active
+            </td>
+            <td>
+              1234567890
+            </td>
+            <td>
+              NGN 25000
+            </td>
+            <td>
+              <button
+                className="acct-btn"
+                onClick={[Function]}
+                type="button"
+              >
+                Transactions
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div
+      className="account-details transaction hidden"
+    >
+      <h2
+        className="transaction-header"
+      >
+        Transactions
+      </h2>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              <i
+                className="fas fa-long-arrow-alt-up credit"
+              />
+              <i
+                className="fas fa-long-arrow-alt-down debit"
+              />
+            </th>
+            <th>
+              Amount
+            </th>
+            <th>
+              Date
+            </th>
+            <th>
+              Time
+            </th>
+          </tr>
+        </thead>
+        <tbody />
+      </table>
+    </div>
+  </div>
+  <div>
+    <button
+      className="create"
+      onClick={[Function]}
+      type="button"
+    >
+      +
+    </button>
+  </div>
+  <Connect(CreateAccount) />
+</Tab>
+`;

@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders correctly 1`] = `
+<Tab
+  active={true}
+>
+  <div
+    className="profile-tab"
+  >
+    <div
+      className="name-card"
+    >
+      john doe
+    </div>
+    <div
+      className="profile-details"
+    >
+      <table>
+        <tbody>
+          <tr>
+            <th>
+              ROLE
+            </th>
+            <td>
+              Cashier
+            </td>
+          </tr>
+          <tr>
+            <th>
+              EMAIL
+            </th>
+            <td>
+              john.doe@test.com
+            </td>
+          </tr>
+          <tr>
+            <th>
+              PHONE
+            </th>
+            <td>
+              +234(0)7060854773
+            </td>
+          </tr>
+          <tr>
+            <th>
+              ADDRESS
+            </th>
+            <td>
+              No. 32, Australopitecus Avenue, CIPE tower.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</Tab>
+`;

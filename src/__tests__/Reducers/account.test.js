@@ -6,6 +6,7 @@ import {
 } from '@Actions/types';
 
 const { expect } = chai;
+chai.should();
 
 describe('Account Reducers tests', () => {
   it('should set user accounts successfully', () => {
@@ -46,5 +47,12 @@ describe('Account Reducers tests', () => {
     });
     expect(state.transactions).to.be.a('array');
     expect(state.transactions).to.equal(transactions);
+  });
+
+  it('should return default state', () => {
+    const state = accountReducer(initialState, {
+      type: 'RANDOM_TYPE',
+    });
+    state.should.equal(initialState);
   });
 });

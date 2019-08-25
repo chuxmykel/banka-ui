@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Account action tests Account Action tests return values changeAccountStatus should return expected values 1`] = `[Function]`;
+
+exports[`Account action tests Account Action tests return values createAccount should return expected values 1`] = `[Function]`;
+
+exports[`Account action tests Account Action tests return values deleteAccount should return expected values 1`] = `[Function]`;
+
+exports[`Account action tests Account Action tests return values getAccountTransactions should return expected values 1`] = `[Function]`;
+
+exports[`Account action tests Account Action tests return values getAccounts should return expected values 1`] = `[Function]`;
+
+exports[`Account action tests Account Action tests return values getAllUsersAccounts should return expected values 1`] = `[Function]`;
+
+exports[`Account action tests Account Action tests return values transaction should return expected values 1`] = `[Function]`;
+
+exports[`Account action tests Async action creators test creates accounts successfully 1`] = `
+Array [
+  Object {
+    "type": "LOADING",
+  },
+  Object {
+    "type": "LOADING",
+  },
+  Object {
+    "payload": "createAccount",
+    "type": "MODAL_CLOSE",
+  },
+  Object {
+    "type": "NOT_ LOADING",
+  },
+]
+`;
+
+exports[`Account action tests Async action creators test fetches accounts successfully 1`] = `
+Array [
+  Object {
+    "type": "LOADING",
+  },
+  Object {
+    "payload": undefined,
+    "type": "GET_USER_ACCOUNTS",
+  },
+  Object {
+    "type": "NOT_ LOADING",
+  },
+]
+`;
+
+exports[`Account action tests Async action creators test fetches transactions successfully 1`] = `
+Array [
+  Object {
+    "type": "LOADING",
+  },
+  Object {
+    "payload": Object {
+      "accounts": Array [],
+      "data": Array [],
+    },
+    "type": "GET_ACCOUNT_TRANSACTIONS",
+  },
+  Object {
+    "type": "NOT_ LOADING",
+  },
+]
+`;

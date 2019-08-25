@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Modal from '@Common/Modal/Modal';
@@ -6,49 +6,43 @@ import Button from '@Common/Button/Button';
 import { closeModal } from '@Actions/uiActions';
 import './DialogueBox.css';
 
-class DialogueBox extends Component {
-  closeModal = () => {
-    const { close } = this.props;
-    return close('DialogueBox');
-  }
+export const DialogueBox = (props) => {
+  const {
+    open,
+    close,
+    children,
+    agree,
+    agreeText,
+    activeDialogue,
+    loading,
+  } = props;
 
-  render() {
-    const {
-      open,
-      children,
-      agree,
-      agreeText,
-      activeDialogue,
-      loading,
-    } = this.props;
-
-    return (
-      <Modal close={this.closeModal} open={open && activeDialogue}>
-        <div className="dialogue-box">
-          <div className="dialogue">
-            {children}
-          </div>
-          <div className="dialogue-controls">
-            <Button
-              type="button"
-              handleClick={agree}
-              className="agree"
-              disabled={loading}
-              text={agreeText}
-            />
-            <Button
-              type="button"
-              handleClick={this.closeModal}
-              className="cancel"
-              disabled={loading}
-              text="cancel"
-            />
-          </div>
+  return (
+    <Modal close={() => close('DialogueBox')} open={open && activeDialogue}>
+      <div className="dialogue-box">
+        <div className="dialogue">
+          {children}
         </div>
-      </Modal>
-    );
-  }
-}
+        <div className="dialogue-controls">
+          <Button
+            type="button"
+            handleClick={agree}
+            className="agree"
+            disabled={loading}
+            text={agreeText}
+          />
+          <Button
+            type="button"
+            handleClick={() => close('DialogueBox')}
+            className="cancel"
+            disabled={loading}
+            text="cancel"
+          />
+        </div>
+      </div>
+    </Modal>
+  );
+};
 
 DialogueBox.propTypes = {
   open: PropTypes.bool.isRequired,
