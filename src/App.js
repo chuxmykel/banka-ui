@@ -18,7 +18,7 @@ export const App = (props) => {
   document.querySelector('body').style.overflow = modalOpen ? 'hidden' : null;
   return (
     <Router>
-      <div>
+      <div className="app">
         <ToastContainer />
         <Route exact path="/" component={LandingPage} />
         <Switch>

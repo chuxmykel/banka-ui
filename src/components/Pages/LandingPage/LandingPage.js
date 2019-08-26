@@ -45,7 +45,7 @@ export class LandingPage extends Component {
           </section>
           <section className="section">
             <div className="image-container">
-              <img src={Cards} alt="debit cards" />
+              <img className="cards-img" src={Cards} alt="debit cards" />
             </div>
             <div className="text-container">
               <TitledText
@@ -65,7 +65,7 @@ export class LandingPage extends Component {
                 open={() => open('signin')}
               />
             </div>
-            <div className="image-container round">
+            <div className="image-container">
               <img src={Family} alt="A family" />
             </div>
           </section>

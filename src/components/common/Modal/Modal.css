@@ -45,3 +45,18 @@
   transform: scale(1.5);
   outline: none;
 }
+
+
+@media (max-width: 768px) {  
+  .modal {
+    min-width: 423px;
+  }
+  
+  .modal-content {
+    padding: 45px 45px 45px 45px;
+  }
+  
+  .close {
+    font-size: 32px;
+  }
+}

@@ -58,3 +58,9 @@
   color: red;
   width: 450px;
 }
+
+@media (max-width: 768px) {  
+  .error-div {
+    max-width: 300px;
+  }
+}

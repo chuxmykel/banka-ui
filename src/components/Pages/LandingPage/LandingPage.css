@@ -49,10 +49,79 @@
 
 .section {
   display: flex;
+  justify-content: space-around;
   margin: 100px 5vw 0 5vw;
 }
 
 .section button {
   background-color: black;
   color: #fafafa;;
+}
+
+@media (max-width: 950px) {
+  .text-container {
+    width: 52vw;
+  }
+  
+  .image-container {
+    width: 35vw;
+  }
+
+  .image-container img {
+    height: 300px;
+    width: 350px;
+  }
+
+  .text-container h3 {
+    font-size: 35px;
+  }
+  
+  .text-container p {
+    font-size: 22px;
+  }
+  
+  .text-container button {
+    font-size: 20px;
+    height: 45px;
+    width: 160px;
+    margin: 45px 0 0 0;
+  }
+  
+  .section {
+    margin: 100px 0 0 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .text-container {
+    width: 100%;
+  }
+  
+  .image-container {
+    display: none;
+  }
+
+  .text-container h3 {
+    font-size: 35px;
+  }
+  
+  .text-container p {
+    font-size: 22px;
+  }
+  
+  .text-container button {
+    font-size: 20px;
+    height: 45px;
+    width: 160px;
+    margin: 45px 0 0 0;
+  }
+  
+  .section {
+    margin: 25px 0 25px 0;
+  }
 }
