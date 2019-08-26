@@ -19,3 +19,22 @@ header {
 .nav-container {
   flex: 1;
 }
+
+@media (max-width: 768px) {
+  header {
+    margin: 0 30px 0 30px;
+  }
+  
+  .logo{
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 30px;
+  }
+  
+  .logo-container {
+    flex: 7;
+  }
+  
+  .nav-container {
+    flex: 1;
+  }
+}

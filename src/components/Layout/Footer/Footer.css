@@ -2,11 +2,12 @@
 
 footer {
   display: flex;
-  height: 33vh;
+  justify-content: space-around;
+  height: 26vh;
   background-color: black;
   color: white;
   font-family: 'Ubuntu Mono', monospace;
-  padding: 80px 100px;
+  padding: 80px 5% 80px 5%;
 }
 
 footer h4 {
@@ -16,7 +17,7 @@ footer h4 {
 
 footer ul {
   list-style: none;
-  margin: 0 160px 0 0;
+  min-width: 20%;
 }
 
 footer li {
@@ -28,10 +29,6 @@ footer li {
   justify-content: space-around;
   padding: 11px 0 0 0;
   font-size: 32px;
-}
-
-.social-container {
-  margin: 0 150px 0 0;
 }
 
 .news-letter {
@@ -71,4 +68,82 @@ footer li {
 
 .news-letter button:focus {
   outline: none;
+}
+
+@media (max-width: 950px) {
+  footer {
+    padding: 80px 1% 80px 1%;
+  }
+
+  footer h4 {
+    font-size: 14px;
+  }
+
+  footer li {
+    padding: 9px 0 9px 0;
+  }
+
+  .social {
+    font-size: 28px;
+  }
+
+  .news-letter input {
+    height: 40px;
+  }
+
+  .news-letter input::placeholder {
+    padding: 7px;
+    font-size: 15px;
+  }
+
+  .news-letter button {
+    height: 40px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  footer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  footer h4 {
+    font-size: 22px;
+    margin: 0 0 15px 0;
+  }
+
+  footer h4:hover {
+    cursor: pointer;
+  }
+
+  footer li {
+    display: none;
+  }
+
+  .social {
+    display: inline;
+    padding: 5px;
+    font-size: 25px;
+  }
+
+  .social i {
+    padding: 5px;
+    margin-bottom: 15px;
+  }
+
+  .news-letter input {
+    height: 40px;
+    width: 40%;
+  }
+
+  .news-letter input::placeholder {
+    padding: 7px;
+    font-size: 15px;
+  }
+
+  .news-letter button {
+    height: 40px;
+    font-size: 15px;
+  }
 }
