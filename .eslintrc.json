@@ -50,7 +50,7 @@
 	"settings": {
 		"import/resolver": {
 			"webpack": {
-				"alias": "build-utils/webpack.common.js"
+				"config": "build-utils/webpack.common.js"
 			}
 		}
 	}
