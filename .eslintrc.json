@@ -54,6 +54,9 @@
 			"webpack": {
 				"config": "build-utils/webpack.common.js"
 			}
-		}
+		},
+		"react": {
+      "pragma": "h"
+    }
 	}
 }
