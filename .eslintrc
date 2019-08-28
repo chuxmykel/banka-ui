@@ -48,12 +48,5 @@
 		"no-shadow": ["error", {
 			"allow": ["req", "res", "err"]
 		}]
-	},
-	"settings": {
-		"import/resolver": {
-			"webpack": {
-				"config": "build-utils/webpack.common.js"
-			}
-		}
 	}
 }
