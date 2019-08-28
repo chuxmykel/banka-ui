@@ -9,7 +9,7 @@
 		"Atomics": "readonly",
 		"SharedArrayBuffer": "readonly"
 	},
-	"parser": "babel-eslint",
+	// "parser": "babel-eslint",
 	"parserOptions": {
 		"ecmaFeatures": {
 			"jsx": true,
@@ -48,5 +48,12 @@
 		"no-shadow": ["error", {
 			"allow": ["req", "res", "err"]
 		}]
+	},
+	"settings": {
+		"import/resolver": {
+			"webpack": {
+				"config": "build-utils/webpack.common.js"
+			}
+		}
 	}
 }
