@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -23,7 +24,7 @@ export const PrivateRoutes = ({ component: Component, auth, ...rest }) => {
 
 PrivateRoutes.propTypes = {
   auth: PropTypes.object.isRequired,
-  component: PropTypes.node.isRequired,
+  component: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => ({
