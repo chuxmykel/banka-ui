@@ -16,7 +16,7 @@ module.exports = {
   ],
   devServer: {
     contentBase: path.resolve(__dirname, 'build'),
-    port: 9090,
+    port: process.env.PORT,
     historyApiFallback: true,
   },
 };

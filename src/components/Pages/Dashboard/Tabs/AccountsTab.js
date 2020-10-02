@@ -66,7 +66,7 @@ export class AccountTab extends Component {
       let data = [];
       if (trans === undefined) {
         data = [(
-          <tr>
+          <tr key="1">
             <td colSpan="4">
               Selected account has no transactions.
               Visit one of our branches to carry out transactions.
