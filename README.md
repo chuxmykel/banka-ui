@@ -62,7 +62,7 @@ it up and running
 
 - clone the repo using 
 ```shell
-~> git clone https://github.com/chuxmykel/banka-ui.git
+$ git clone https://github.com/chuxmykel/banka-ui.git
 ```
 - run ``` npm install --prod``` to install dependencies
 - create a .env file from the .env.example file and fill in the necessary environment variables
@@ -77,10 +77,10 @@ To develop the app further, a few handy tools have been put in place such as nod
 Access them by starting the server using ```npm run dev```. But before using the command, make sure to follow the steps below
 
 ```shell
-git clone https://github.com/chuxmykel/banka-ui.git
-cd banka-ui/
-npm install
-npm run dev
+$ git clone https://github.com/chuxmykel/banka-ui.git
+$ cd banka-ui/
+$ npm install
+$ npm run dev
 ```
 
 ### Building
@@ -88,7 +88,7 @@ npm run dev
 The app is written in ES6+ and wired to run ES5 transpiled code in production. To transpile any changes to ES5 run the script shown below
 
 ```shell
-npm run build
+$ npm run build
 ```
 
 Babel then transpiles your ES6+ files to ES5 for environment compatibility
